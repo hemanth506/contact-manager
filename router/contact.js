@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const validate = require("../middleware/validateHandler");
 const {
   getContacts,
   getContact,
@@ -7,6 +8,8 @@ const {
   updateContact,
   deleteContact,
 } = require("../controller/contactControllers");
+
+router.use(validate);
 
 // Get all contacts
 router.get("/", getContacts);
