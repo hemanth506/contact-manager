@@ -11,19 +11,10 @@ const {
 
 router.use(validate);
 
-// Get all contacts
-router.get("/", getContacts);
-
-// Get a contact using Id
-router.get("/:id", getContact);
-
-// Create a contact
-router.post("/", createContact);
-
-// Update a contact using ID
-router.put("/:id", updateContact);
-
-// Delete a contact
-router.delete("/:id", deleteContact);
+router.get("/", getContacts); // Get all contacts
+router.get("/:id", getContact); // Get a contact using Id
+router.post("/", createContact); // Create a contact
+router.put("/:id", updateContact); // Update a contact using ID
+router.delete("/:id", deleteContact); // Delete a contact
 
 module.exports = router;

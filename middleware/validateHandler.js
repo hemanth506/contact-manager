@@ -11,8 +11,8 @@ const validate = asyncHandler(async (req, res, next) => {
         res.status(401);
         throw new Error("User is not authorized");
       }
-      // req.user
-      console.log(decoded);
+
+      // Add the decoded value in req.user for further usage
       req.user = {
         username: decoded.username,
         email: decoded.email,

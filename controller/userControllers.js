@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+// @desc - will create a new user
+// @access public
 const register = asyncHandler(async (req, res) => {
   console.log(req.body);
   const { username, email, password } = req.body;
@@ -34,6 +36,8 @@ const register = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc - will return a access token to access all the contacts.
+// @access public
 const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -56,13 +60,10 @@ const login = asyncHandler(async (req, res) => {
   }
 });
 
-/* 
-  @desc get the currect user info
-  @access private
-*/
+// @desc get the currect user info
+// @access private
 const current = asyncHandler(async (req, res) => {
-  console.log(req.user);
-  res.status(200).send({ message: "current user" });
+  res.status(200).send(req.user);
 });
 
 module.exports = { login, register, current };
